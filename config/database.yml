@@ -16,7 +16,7 @@ development:
   adapter:  postgresql
   host:     localhost
   encoding: unicode
-  database: rails-devise-pundit_development
+  database: fisheryindependent_development
   pool:     5
   username: developer
   password: noaaRails
@@ -44,7 +44,7 @@ test:
   adapter:  postgresql
   host:     localhost
   encoding: unicode
-  database: rails-devise-pundit_test
+  database: fisheryindependent_test
   pool:     5
   username: developer
   password: noaaRails
@@ -54,7 +54,7 @@ production:
   adapter:  postgresql
   host:     localhost
   encoding: unicode
-  database: rails-devise-pundit_production
+  database: fisheryindependent_production
   pool:     5
   username: developer
   password: noaaRails
