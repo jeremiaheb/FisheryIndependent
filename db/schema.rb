@@ -10,10 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170522130034) do
+ActiveRecord::Schema.define(version: 20170522181245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "captains", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "observers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "samples", force: :cascade do |t|
+    t.integer "grid_number"
+    t.datetime "arrival_time"
+    t.integer "wind_speed"
+    t.integer "wave_height"
+    t.string "current_speed"
+    t.text "sample_notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "trip_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.date "date"
+    t.string "vessel"
+    t.integer "captain_id"
+    t.integer "observer_id"
+    t.datetime "depart_time"
+    t.datetime "return_time"
+    t.text "trip_notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

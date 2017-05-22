@@ -1,0 +1,76 @@
+
+
+
+
+<div class="row">
+  <div class="col-sm-9">
+    Outer Grid
+    <div class="row">
+      <div class="col-xs-8 col-sm-2">
+        Left Grid
+      </div>
+      <div class="col-xs-4 col-sm-10">
+
+        <%= simple_form_for @trip do |f| %>
+        <% if trip.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+
+            <ul>
+            <% trip.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :date %>
+          <%= f.date_select :date, id: :trip_date %>
+        </div>
+
+        <div class="field">
+          <%= f.label :vessel %>
+          <%= f.text_field :vessel, id: :trip_vessel %>
+        </div>
+
+        <div class="field">
+          <%= f.label :captain_id %>
+          <%= f.association :captain %>
+        </div>
+
+        <div class="field">
+          <%= f.label :observer_id %>
+          <%= f.association :observer %>
+        </div>
+
+        <div class="field">
+          <%= f.label :depart_time %>
+          <%= f.datetime_select :depart_time, id: :trip_depart_time %>
+        </div>
+
+        <div class="field">
+          <%= f.label :return_time %>
+          <%= f.datetime_select :return_time, id: :trip_return_time %>
+        </div>
+
+        <div class="field">
+          <%= f.label :trip_notes %>
+          <%= f.text_area :trip_notes, id: :trip_trip_notes %>
+        </div>
+
+          <%= f.fields_for :samples do |builder| %>
+            <%= render 'samples', f: builder %>
+          <% end %>   
+
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+
+      <% end %>
+
+
+      </div>
+    </div>
+  </div>
+</div>
