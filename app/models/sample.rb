@@ -7,6 +7,6 @@ class Sample < ApplicationRecord
 
 
   has_many :catches, inverse_of: :sample, dependent: :destroy
-  accepts_nested_attributes_for :catches, allow_destroy: true
+  accepts_nested_attributes_for :catches, reject_if: proc { |attributes| attributes[:animal_id].blank? }, allow_destroy: true
   has_many :animals, through: :catches, inverse_of: :sample
 end
