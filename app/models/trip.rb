@@ -8,6 +8,6 @@ class Trip < ApplicationRecord
 
   has_many :catches, through: :samples
 
-  accepts_nested_attributes_for :samples, reject_if: proc { |attributes| attributes[:wind_speed].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :samples, allow_destroy: true
 
 end
