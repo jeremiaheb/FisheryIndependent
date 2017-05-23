@@ -10,4 +10,7 @@ class Trip < ApplicationRecord
 
   accepts_nested_attributes_for :samples, allow_destroy: true
 
+
+  validates :samples, length: { minimum: 1 }
+
 end
