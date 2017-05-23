@@ -1,0 +1,12 @@
+<div class="nested-fields">
+  
+  Grid Number: <%= f.text_field :grid_number %>
+  Arrival Time: <%= f.time_field :arrival_time %>
+  Wind Speed: <%= f.text_field :wind_speed %>
+  Wave Height: <%= f.text_field :wave_height %>
+  Current Speed: <%= f.text_field :current_speed %>
+  Sample Notes: <%= f.text_field :sample_notes %>
+  
+  <%= link_to_remove_association "remove sample", f %>
+
+</div>

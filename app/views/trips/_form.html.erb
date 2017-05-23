@@ -1,43 +1,34 @@
+<h1> Trip </h1>
 
-<h1>New Trip</h1>
+
 <%= form_for @trip do |f| %>
-  <p> 
-    Date: <%= f.date_field :date %>
-  </p>
-  <p> 
-    Vessel: <%= f.text_field :vessel %>
-  </p>
-  <p> 
-    Captain: <%= f.collection_select(:captain_id, Captain.all, :id, :name) %>
-  </p>
-  <p> 
-    Observer: <%= f.collection_select(:observer_id, Observer.all, :id, :name) %>
-  </p>
-  <p> 
-    Depart Time: <%= f.time_field :depart_time %>
-  </p>
-  <p> 
-    Return Time: <%= f.time_field :return_time %>
-  </p>
-  <p> 
-    Trip Notes: <%= f.text_field :trip_notes %>
-  </p>
-
-      <%= f.fields_for :samples do |s| %>
-        Grid Number: <%= s.text_field :grid_number %>
-        Arrival Time: <%= s.time_field :arrival_time %>
-        Wind Speed: <%= s.text_field :wind_speed %>
-        Wave Height: <%= s.text_field :wave_height %>
-        Current Speed: <%= s.text_field :current_speed %>
-        Sample Notes: <%= s.text_field :sample_notes %>
-      <% end %>
-        <%= link_to_add_association 'add sample', f, :samples %>
+  
+  <%= render 'shared/errors', object: @trip %>
+  
+  <div>
+  Date: <%= f.date_field :date %>
+  Vessel: <%= f.text_field :vessel %>
+  Captain: <%= f.collection_select(:captain_id, Captain.all, :id, :name) %>
+  Observer: <%= f.collection_select(:observer_id, Observer.all, :id, :name) %>
+  Departure Time: <%= f.time_field :depart_time %>
+  Return Time: <%= f.time_field :return_time %>
+  Trip Notes: <%= f.text_field :trip_notes %>
+  </div>
 
 
-  <p>
-    <%= f.submit 'Create Trip' %>
-  </p>
+  <div> 
+    <p><strong>Samples:</strong></p>
+    
+    <div id="samples">
+    <%= f.fields_for :samples do |sample| %>
+      <%= render "sample_fields", f: sample %>
+    <% end %>
+
+      <div class="links">
+        <%= link_to_add_association "add sample", f, :samples  %>
+      </div>
+    </div>
+  </div>
+
+  <%= f.submit %>
 <% end %>
-
-
-
