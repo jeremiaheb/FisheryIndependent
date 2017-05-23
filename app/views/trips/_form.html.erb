@@ -1,34 +1,61 @@
 <h1> Trip </h1>
 
-
 <%= form_for @trip do |f| %>
-  
-  <%= render 'shared/errors', object: @trip %>
-  
-  <div>
-  Date: <%= f.date_field :date %>
-  Vessel: <%= f.text_field :vessel %>
-  Captain: <%= f.collection_select(:captain_id, Captain.all, :id, :name) %>
-  Observer: <%= f.collection_select(:observer_id, Observer.all, :id, :name) %>
-  Departure Time: <%= f.time_field :depart_time %>
-  Return Time: <%= f.time_field :return_time %>
-  Trip Notes: <%= f.text_field :trip_notes %>
-  </div>
+      <%= render 'shared/errors', object: @trip %>
+        
+      <div class="row">
+        <div class="form-group col-md-1">
+          <%= f.label :date, "Date", class: "col-md-1 control-label" %>
+          <%= f.text_field :date, class: "form-control" %>
+        </div>
+
+        <div class="form-group col-md-1">
+          <%= f.label :vessel, "Vessel", class: "col-md-1 control-label" %>
+          <%= f.text_field :vessel, class: "form-control" %>
+        </div>
+
+        <div class="form-group col-md-1">
+          <%= f.label :captain_id, "Captain", class: "col-md-1 control-label" %>
+          <%= f.collection_select(:captain_id, Captain.all, :id, :name, class: "form-control") %>
+        </div>
+
+        <div class="form-group col-md-1">
+          <%= f.label :observer_id, "Observer", class: "col-md-1 control-label" %>
+          <%= f.collection_select(:observer_id, Observer.all, :id, :name, class: "form-control") %>
+        </div>
+
+        <div class="form-group col-md-1">
+          <%= f.label :depart_time, "Departure Time", class: "col-md-1 control-label" %>
+          <%= f.time_field :depart_time, class: "form-control" %>
+        </div>
+
+        <div class="form-group col-md-1">
+          <%= f.label :return_time, "Return Time", class: "col-md-1 control-label" %>
+          <%= f.time_field :return_time, class: "form-control" %>
+        </div>
+
+        <div class="form-group col-md-4">
+          <%= f.label :trip_notes, "Trip Notes", class: "col-md-1 control-label" %>
+          <%= f.text_area :trip_notes, class: "form-control" %>
+        </div>
+      </div>
 
 
-  <div> 
-    <p><strong>Samples:</strong></p>
-    
-    <div id="samples">
-    <%= f.fields_for :samples do |sample| %>
-      <%= render "sample_fields", f: sample %>
+
+          <div> 
+            <p><strong>Samples:</strong></p>
+
+            <div id="samples">
+              <%= f.fields_for :samples do |sample| %>
+                <%= render "sample_fields", f: sample %>
+              <% end %>
+
+              <div class="links">
+                <%= link_to_add_association "add sample", f, :samples  %>
+              </div>
+            </div>
+          </div>
+
+      <%= f.submit %>
     <% end %>
 
-      <div class="links">
-        <%= link_to_add_association "add sample", f, :samples  %>
-      </div>
-    </div>
-  </div>
-
-  <%= f.submit %>
-<% end %>

@@ -1,10 +1,22 @@
 <div class="nested-fields">
-  
-  Species:     <%= f.collection_select(:animal_id, Animal.all, :id, :species_cd) %>
-  Fork Length  <%= f.number_field  :fork_length %>
-  Girth:       <%= f.number_field    :girth %>
 
-  
-  <%= link_to_remove_association "remove catch", f %>
+
+  <div class="row">
+        <div class="form-group col-md-1">
+          <%= f.label :animal_id, "Species", class: "col-md-1 control-label" %>
+          <%= f.collection_select(:animal_id, Animal.all, :id, :scientific_name, class: "form-control") %>
+        </div>
+
+    <div class="form-group col-md-1">
+          <%= f.label :fork_length, "Fork Length", class: "col-md-1 control-label" %>
+          <%= f.text_field :fork_length, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-1">
+          <%= f.label :girth, "Girth", class: "col-md-1 control-label" %>
+          <%= f.text_field :girth, class: "form-control" %>
+    </div> 
+    <%= link_to_remove_association "remove catch", f %>
+  </div>
 
 </div>
