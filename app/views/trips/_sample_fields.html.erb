@@ -6,6 +6,14 @@
   Wave Height: <%= f.text_field :wave_height %>
   Current Speed: <%= f.text_field :current_speed %>
   Sample Notes: <%= f.text_field :sample_notes %>
+
+
+    <%= f.fields_for :drops do |builder| %>
+    <%= render 'drop_fields', f: builder %>
+    <% end %>
+    <div class="links">
+    <%= link_to_add_association "Add Drop",f,:drops %>
+    </div>
   
   <%= link_to_remove_association "remove sample", f %>
 
