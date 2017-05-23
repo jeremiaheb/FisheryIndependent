@@ -1,0 +1,10 @@
+<div class="nested-fields">
+  
+  Species:     <%= f.collection_select(:animal_id, Animal.all, :id, :species_cd) %>
+  Fork Length  <%= f.number_field  :fork_length %>
+  Girth:       <%= f.number_field    :girth %>
+
+  
+  <%= link_to_remove_association "remove catch", f %>
+
+</div>
