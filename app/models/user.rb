@@ -6,6 +6,8 @@ class User < ApplicationRecord
     self.role ||= :user
   end
 
+  has_many :trips
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

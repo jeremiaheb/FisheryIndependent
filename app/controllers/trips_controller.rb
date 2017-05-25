@@ -14,7 +14,7 @@ class TripsController < ApplicationController
 
   # GET /trips/new
   def new
-    @trip = Trip.new
+    @trip = Trip.new user_id: current_user.id
 
     sample = @trip.samples.build
     sample.drops.build
@@ -80,7 +80,7 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:date, :vessel, :captain_id, :observer_id, :depart_time, :return_time, :trip_notes,
+      params.require(:trip).permit(:date, :vessel, :captain_id, :user_id, :depart_time, :return_time, :trip_notes,
                                   samples_attributes: [:id, :grid_number, :arrival_time, :wind_speed, :wave_height, :current_speed, :sample_notes, :_destroy,
                                                        drops_attributes: [:id, :sample_id, :drop_number, :lines, :start_time, :start_depth, :start_lat, :start_lon, :end_time, :end_depth, :end_lat, :end_lon, :fish_caught, :_destroy],
                                                        catches_attributes: [:id, :sample_id, :animal_id, :fork_length, :girth, :_destroy],
