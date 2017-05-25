@@ -5,7 +5,7 @@
         if user.admin?
           scope.all
         else
-          scope.where(index: true)
+          scope.where(user: user)
         end
       end
 
