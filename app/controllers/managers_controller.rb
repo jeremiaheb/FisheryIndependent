@@ -1,30 +1,39 @@
 class ManagersController < ApplicationController
-  before_action :set_manager, only: [:show, :edit, :update, :destroy]
+  #before_action :set_manager, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  after_action :verify_authorized
 
   # GET /managers
   # GET /managers.json
   def index
     @managers = Manager.all
+    authorize User
   end
 
   # GET /managers/1
   # GET /managers/1.json
   def show
+    @manager = Manager.find(params[:id])
+    authorize @manager
   end
 
   # GET /managers/new
   def new
     @manager = Manager.new
+    authorize @manager
   end
 
   # GET /managers/1/edit
   def edit
+  
   end
 
   # POST /managers
   # POST /managers.json
   def create
     @manager = Manager.new(manager_params)
+
+    authorize @manager
 
     respond_to do |format|
       if @manager.save
@@ -40,6 +49,9 @@ class ManagersController < ApplicationController
   # PATCH/PUT /managers/1
   # PATCH/PUT /managers/1.json
   def update
+    @manager = Manager.find(params[:id])
+    authorize @manager
+
     respond_to do |format|
       if @manager.update(manager_params)
         format.html { redirect_to @manager, notice: 'Manager was successfully updated.' }

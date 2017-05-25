@@ -4,6 +4,7 @@
 <td>
   <%= form_for(user) do |f| %>
     <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
+    <%= f.collection_select(:manager_id, Manager.all, :id, :name, {include_blank: true}, {}) %>
     <%= f.submit 'Change Role', :class => 'button-xs' %>
   <% end %>
 </td>
