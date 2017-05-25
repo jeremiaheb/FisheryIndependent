@@ -2,6 +2,7 @@ class Trip < ApplicationRecord
   
   belongs_to :captain
   belongs_to :user
+  belongs_to :manager
 
   has_many :samples, inverse_of: :trip, dependent: :destroy
   has_many :drops, through: :samples
