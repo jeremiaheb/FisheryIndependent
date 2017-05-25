@@ -1,7 +1,7 @@
 class Animal < ApplicationRecord
 
-  has_many :catches, inverse_of: :animal, dependent: :destroy
-  has_many :samples, inverse_of: :animal, through: :catches
+  has_many :catches, dependent: :destroy
+  has_many :samples, through: :catches
   accepts_nested_attributes_for :catches, allow_destroy: true
 
 end
