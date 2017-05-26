@@ -25,7 +25,8 @@ class ManagersController < ApplicationController
 
   # GET /managers/1/edit
   def edit
-  
+    @manager = Manager.find(params[:id])
+    authorize @manager
   end
 
   # POST /managers

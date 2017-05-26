@@ -12,6 +12,10 @@ class ManagerPolicy < ApplicationPolicy
     user.admin?
   end
 
+  def create?
+    user.admin?
+  end
+
   def new?
     user.admin?
   end
