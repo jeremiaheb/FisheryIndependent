@@ -21,3 +21,78 @@
 body {
   padding-top: 70px;
 }
+
+.tripContainer {
+  margin-left: 30px;
+}
+
+.formSidebar {
+  height: 175px;
+  background-color: gray;
+}
+
+#tripSidebarContent {
+  position: relative;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tripSection {
+  height: 175px;
+  background: yellow;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.tripSectionData{
+  height: 175px;
+  background: pink;
+}
+
+.sampleSidebar {
+  height: 700px;
+  background: gray;
+  margin-left: 0px;
+  margin-right: 0px;
+
+}
+
+#sampleContainer {
+  height: 700px;
+}
+
+#sampleSidebarContent {
+  position: relative;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sampleSectioData {
+  height: 700px;
+  background-color: yellow;
+  overflow: scroll;
+}
+
+#drops {
+  background: pink;
+}
+
+#removeCatchLink {
+  height: 59px;
+  text-align: left;
+}
+
+#removeCatchLink span {
+  position: absolute;
+  bottom: 0;
+}
+
+#dropNestedFields {
+  border-bottom: 1px black solid;
+}
+
+
