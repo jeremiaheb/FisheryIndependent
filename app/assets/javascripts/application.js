@@ -17,6 +17,7 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require bootstrap-datepicker
+//= require select2
 //= require_tree .
 //
 
@@ -31,9 +32,14 @@ $( document ).ready(function() {
     format: "yyyy/mm/dd"
   });
 
-  //$('.timeField').datepicker({
-  //});
-    
+  $(".speciesField").select2({
+    theme: "bootstrap"
+  });
+
+  $(document).delegate(".addCatchLink", "click", function(){ 
+    $(".speciesField").select2({ theme: "bootstrap" });
+  });
+
 
   function addsCollapseButtonToTripSidebar() {
     $(".gridNumber").focusout(function(){

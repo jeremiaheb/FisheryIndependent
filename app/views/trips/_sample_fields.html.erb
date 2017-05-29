@@ -63,7 +63,7 @@
         <%= f.fields_for :catches do |builder| %>
           <%= render 'catch_fields', f: builder %>
         <% end %>
-        <div class="links">
+        <div class="links addCatchLink">
           <%= link_to_add_association "Add Catch",f,:catches %>
         </div>
       </div>

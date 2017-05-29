@@ -39,6 +39,8 @@ gem 'cocoon'
 gem 'simple_form'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'bootstrap-datepicker-rails'
+gem "select2-rails"
+
 
 
 

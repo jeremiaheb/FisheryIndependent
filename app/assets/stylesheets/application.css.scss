@@ -12,6 +12,8 @@
  *
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require bootstrap-datepicker3
+ *= require select2
+ *= require select2-bootstrap
  */
 
 
@@ -77,6 +79,7 @@ body {
 
 #drops {
   background: pink;
+  border-bottom: 1px black solid;
 }
 
 #removeCatchLink {
@@ -87,10 +90,6 @@ body {
 #removeCatchLink span {
   position: absolute;
   bottom: 0;
-}
-
-#dropNestedFields {
-  border-bottom: 1px black solid;
 }
 
 
