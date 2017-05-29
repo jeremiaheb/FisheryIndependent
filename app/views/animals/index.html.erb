@@ -1,31 +1,34 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Animals</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Species cd</th>
-      <th>Scientific name</th>
-      <th>Common name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @animals.each do |animal| %>
-      <tr>
-        <td><%= animal.species_cd %></td>
-        <td><%= animal.scientific_name %></td>
-        <td><%= animal.common_name %></td>
-        <td><%= link_to 'Show', animal %></td>
-        <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
-        <td><%= link_to 'Destroy', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Animal', new_animal_path %>
+<div class="container animalContainer">
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-10">
+      <p id="notice"><%= notice %></p>
+      
+      <h1>Animals</h1>
+      
+      <table class="table table-striped table-condensed table-bordered" id="animalsTable">
+        <thead>
+          <tr>
+            <th>Species cd</th>
+            <th>Scientific name</th>
+            <th>Common name</th>
+            <th colspan="1"></th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @animals.each do |animal| %>
+            <tr>
+              <td><%= animal.species_cd %></td>
+              <td><%= animal.scientific_name %></td>
+              <td><%= animal.common_name %></td>
+              <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= link_to 'Add Species', new_animal_path %></div>
+  </div>
+</div>

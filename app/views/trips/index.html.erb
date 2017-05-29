@@ -1,38 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="container tripIndexContainer">
+<div class="row">
+  <div class="col-md-2 tripIndexSidebar">
+  </div>
+<div class="col-md-10">
+    <p id="notice"><%= notice %></p>
 
-<h1>Trips</h1>
+    <h1>Trips</h1>
 
-<table class="table table-striped" id="tripsTable">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Vessel</th>
-      <th>Captain</th>
-      <th>Observer</th>
-      <th>Depart time</th>
-      <th>Return time</th>
-      <th>Trip notes</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
+    <table class="table table-striped table-condensed table-bordered" id="tripsTable">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Observer</th>
+          <th>Vessel</th>
+          <th>Captain</th>
+          <th>Depart time</th>
+          <th>Return time</th>
+          <th>Trip notes</th>
+          <th colspan="1"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @trips.each do |trip| %>
-      <tr>
-        <td><%= trip.date %></td>
-        <td><%= trip.vessel %></td>
-        <td><%= trip.captain_id %></td>
-        <td><%= trip.user_id %></td>
-        <td><%= trip.depart_time %></td>
-        <td><%= trip.return_time %></td>
-        <td><%= trip.trip_notes %></td>
-        <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
+      <tbody>
+        <% @trips.each do |trip| %>
+          <tr>
+            <td><%= trip.date %></td>
+            <td><%= trip.user.name %></td>
+            <td><%= trip.vessel %></td>
+            <td><%= trip.captain.name %></td>
+            <td><%= trip.depart_time.strftime("%I:%M%p") %></td>
+            <td><%= trip.return_time.strftime("%I:%M%p") %></td>
+            <td><%= trip.trip_notes %></td>
+            <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 <%= link_to 'New Trip', new_trip_path %>
+</div>
+
 

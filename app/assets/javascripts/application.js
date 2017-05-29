@@ -22,7 +22,7 @@
 
 $( document ).ready(function() {
 
-  $("#tripsTable").DataTable({
+  $(".table").DataTable({
   
   });
     
