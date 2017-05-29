@@ -14,5 +14,12 @@ class Trip < ApplicationRecord
 
   validates :samples, length: { minimum: 1 }
 
+  validates :user_id, :manager_id, :date, :vessel,  :captain_id, :depart_time, :return_time, presence: true
+  validate :return_time_after_departure_time
 
+  def return_time_after_departure_time
+    if depart_time > return_time
+      errors.add(:return_time, "must be after departure time")
+    end
+  end
 end

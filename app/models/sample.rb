@@ -14,4 +14,7 @@ class Sample < ApplicationRecord
   validates :drops, length: { minimum: 1 }
   validates :catches, length: { minimum: 1 }
 
+  validates :grid_number, :wind_speed, :wave_height, presence: true, numericality: { only_integer: true } 
+  validates :arrival_time, :current_speed, presence: true
+
 end
