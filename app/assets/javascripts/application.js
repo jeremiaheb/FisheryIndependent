@@ -15,3 +15,41 @@
 //= require bootstrap-sprockets
 //= require cocoon
 //= require_tree .
+//
+
+
+$( document ).ready(function() {
+    
+
+  function addsCollapseButtonToTripSidebar() {
+    $(".gridNumber").focusout(function(){
+      var $gnum = $(this).val();
+      var $sbutton = $('<input/>').attr({type: "button", class: "btn btn-info", value: $gnum, 'data-toggle': "collapse", 'data-target': "#" + $gnum, 'data-parent': ".mySamples"});
+      if (!$(".sampleContainer").is("#" + $gnum)) {
+        $(this).closest(".sampleContainer").attr("id", $gnum);
+        $sbutton.appendTo(".formSidebar");
+        $('input[type="button"][value="#" + $gnum]').click();
+        
+      }
+    });
+  };
+
+  var $mySamples = $(".mySamples");
+  $mySamples.on('show.bs.collapse', '.sampleContainer', function(){ $mySamples.find('.sampleContainer.in').collapse('hide'); });
+
+  addsCollapseButtonToTripSidebar();
+
+  $(document).delegate(".addSamplesLink", "click", function(){ 
+    addsCollapseButtonToTripSidebar();
+  });
+
+  $(".gridNumber").each(function(){
+      var $gnum = $(this).val();
+      var $sbutton = $('<input/>').attr({type: "button", class: "btn btn-info", value: $gnum, 'data-toggle': "collapse", 'data-target': "#" + $gnum, 'data-parent': ".mySamples"});
+        $(this).closest(".sampleContainer").attr("id", $gnum);
+        $sbutton.appendTo(".formSidebar");
+  });
+  
+  $('input[type="button"]').each(function(){ $(this).click(); });
+
+});

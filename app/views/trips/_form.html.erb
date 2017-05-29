@@ -55,20 +55,15 @@
       </div> 
     </div>
 
-
-
-
-
-
-    <div id="samples">
+    <div class="mySamples">
       <%= f.fields_for :samples do |sample| %>
         <%= render "sample_fields", f: sample %>
       <% end %>
 
       <div class="links">
-        <%= link_to_add_association "add sample", f, :samples  %>
-      </div>
-    </div>
+        <%= link_to_add_association "add sample", f, :samples, class: "addSamplesLink"  %>
+      </div></div>
+
 
   <%= f.submit %>
 <% end %>
