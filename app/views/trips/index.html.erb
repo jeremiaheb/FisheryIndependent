@@ -1,8 +1,9 @@
 <div class="container tripIndexContainer">
 <div class="row">
   <div class="col-md-2 tripIndexSidebar">
+    <% if current_user.manager? or current_user.admin? %>
     <%= button_to('Download Trips (.xlsx)', trips_path(format: "xlsx"), :method => "get", :class => 'btn btn-small btn-primary')  %>   
-
+    <% end %>
     
   </div>
 <div class="col-md-10">
