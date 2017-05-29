@@ -37,6 +37,8 @@ gem 'pundit'
 gem 'therubyracer', :platform=>:ruby
 gem 'cocoon'
 gem 'simple_form'
+gem 'jquery-datatables-rails', '~> 3.4.0'
+
 
 group :development do
   gem 'better_errors'

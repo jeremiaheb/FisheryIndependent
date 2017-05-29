@@ -14,11 +14,17 @@
 //= require rails-ujs
 //= require bootstrap-sprockets
 //= require cocoon
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require_tree .
 //
 
 
 $( document ).ready(function() {
+
+  $("#tripsTable").DataTable({
+  
+  });
     
 
   function addsCollapseButtonToTripSidebar() {
