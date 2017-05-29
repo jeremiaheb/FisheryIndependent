@@ -9,7 +9,7 @@
 
     <div class="form-group col-md-2">
       <%= f.label :lines, "Lines Fished", class: "control-label" %>
-      <%= f.text_field :lines, class: "form-control" %>
+      <%= f.select(:lines, ["Line 1", "Line 2", "Both Lines"], {}, {class: "form-control"}) %>
     </div>
 
     <div class="form-group col-md-2">
@@ -58,7 +58,7 @@
 
     <div class="form-group col-md-2">
       <%= f.label :fish_caught, "Fish Caught?", class: "control-label" %>
-      <%= f.text_field :fish_caught, class: "form-control" %>
+      <%= f.select(:fish_caught, [ "Yes", "No" ], {}, {class: "form-control"}) %>
     </div>
  
     <%= link_to_remove_association "remove<br /> drop".html_safe, f %>
