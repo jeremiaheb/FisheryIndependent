@@ -5,6 +5,11 @@ class TripsController < ApplicationController
   # GET /trips.json
   def index
     @trips = policy_scope(Trip)
+    
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   # GET /trips/1

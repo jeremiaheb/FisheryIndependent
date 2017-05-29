@@ -40,7 +40,10 @@ gem 'simple_form'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'bootstrap-datepicker-rails'
 gem "select2-rails"
-
+#gem 'rubyzip', '~> 1.1.0'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: '776037c0fc799bb09da8c9ea47980bd3bf296874'
+gem 'axlsx_rails'
+#gem 'zip-zip'
 
 
 
