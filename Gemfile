@@ -38,6 +38,8 @@ gem 'therubyracer', :platform=>:ruby
 gem 'cocoon'
 gem 'simple_form'
 gem 'jquery-datatables-rails', '~> 3.4.0'
+gem 'bootstrap-datepicker-rails'
+
 
 
 group :development do

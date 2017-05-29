@@ -16,6 +16,7 @@
 //= require cocoon
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+//= require bootstrap-datepicker
 //= require_tree .
 //
 
@@ -25,6 +26,13 @@ $( document ).ready(function() {
   $(".table").DataTable({
   
   });
+
+  $('.dateField').datepicker({
+    format: "yyyy/mm/dd"
+  });
+
+  //$('.timeField').datepicker({
+  //});
     
 
   function addsCollapseButtonToTripSidebar() {

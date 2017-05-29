@@ -39,23 +39,34 @@
       </div>
 
 
-        <div id="drops">
-          <%= f.fields_for :drops do |builder| %>
-            <%= render 'drop_fields', f: builder %>
-          <% end %>
-          <div class="links" id="addDropLink">
-            <%= link_to_add_association "Add Drop",f,:drops %>
-          </div>
+      <div id="drops">
+        <%= f.fields_for :drops do |builder| %>
+          <%= render 'drop_fields', f: builder %>
+        <% end %>
+        <div class="links" id="addDropLink">
+          <%= link_to_add_association "Add Drop",f,:drops %>
         </div>
+      </div>
 
-        <div id="catches">
-          <%= f.fields_for :catches do |builder| %>
-            <%= render 'catch_fields', f: builder %>
-          <% end %>
-          <div class="links">
-            <%= link_to_add_association "Add Catch",f,:catches %>
+      <div id="catches">
+        <div class="row">
+          <div class="col-md-3">
+            <p><strong>Species</strong></p>
           </div>
+          <div class="col-md-3">
+            <p><strong>Fork Length</strong></p>
+          </div>
+          <div class="col-md-3">
+            <p><strong>Girth</strong></p>
+          </div>
+        </div> 
+        <%= f.fields_for :catches do |builder| %>
+          <%= render 'catch_fields', f: builder %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association "Add Catch",f,:catches %>
         </div>
+      </div>
 
 
       <%= link_to_remove_association "remove sample", f %>
