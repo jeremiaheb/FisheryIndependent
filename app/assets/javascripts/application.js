@@ -180,6 +180,42 @@ $( document ).ready(function() {
         }
       });
     });
+    
+    $("#gridNumberField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Valid Grid Number",
+        }
+      });
+    });
+    
+    $("#windSpeedField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Wind Speed",
+        }
+      });
+    });
+    
+    $("#waveHeightField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Wave Height",
+        }
+      });
+    });
+    
+    $("#currentSpeedField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Current Speed",
+        }
+      });
+    });
 
     $(".latitude").each(function() {
       $(this).rules("add", {
