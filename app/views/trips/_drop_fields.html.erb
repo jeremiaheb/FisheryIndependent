@@ -3,13 +3,13 @@
 
   <div class="row">
     <div class="form-group col-md-1">
-      <%= f.label :drop_number, "Drop #", class: "control-label" %>
+      <%= f.label :drop_number, "Drift #", class: "control-label" %>
       <%= f.text_field :drop_number, class: "form-control" %>
     </div>
 
     <div class="form-group col-md-2">
-      <%= f.label :lines, "Lines Fished", class: "control-label" %>
-      <%= f.select(:lines, ["Line 1", "Line 2", "Both Lines"], {}, {class: "form-control"}) %>
+      <%= f.label :lines, "Fished", class: "control-label" %>
+      <%= f.select(:lines, ["Fish", "Squid", "Both"], {}, {class: "form-control"}) %>
     </div>
 
     <div class="form-group col-md-2">
@@ -21,14 +21,31 @@
       <%= f.label :start_depth, "Start Depth", class: "control-label" %>
       <%= f.text_field :start_depth, class: "form-control" %>
     </div>
-    <div class="form-group col-md-2">
-      <%= f.label :start_lat, "Start Lat", class: "control-label" %>
-      <%= f.text_field :start_lat, class: "form-control latitude", id: "latitude_1" %>
+  </div>
+
+  <div class="row">
+    
+    <div class="col-md-1">
     </div>
 
     <div class="form-group col-md-2">
-      <%= f.label :start_lon, "Start Lon", class: "control-label" %>
-      <%= f.text_field :start_lon, class: "form-control longitude", id: "longitude_1" %>
+      <%= f.label :start_lat_deg, "Start Lat Deg", class: "control-label" %>
+      <%= f.text_field :start_lat_deg, class: "form-control" %>
+    </div>
+    
+    <div class="form-group col-md-2">
+      <%= f.label :start_lat_min, "Start Lat Min", class: "control-label" %>
+      <%= f.text_field :start_lat_min, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-2">
+      <%= f.label :start_lon_deg, "Start Lon Deg", class: "control-label" %>
+      <%= f.text_field :start_lon_deg, class: "form-control" %>
+    </div>
+    
+    <div class="form-group col-md-2">
+      <%= f.label :start_lon_min, "Start Lon Min", class: "control-label" %>
+      <%= f.text_field :start_lon_min, class: "form-control" %>
     </div>
   </div>
 
@@ -46,14 +63,31 @@
       <%= f.label :end_depth, "End Depth", class: "control-label" %>
       <%= f.text_field :end_depth, class: "form-control" %>
     </div>
-    <div class="form-group col-md-2">
-      <%= f.label :end_lat, "End Lat", class: "control-label" %>
-      <%= f.text_field :end_lat, class: "form-control latitude", id: "latitude_2" %>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-1">
     </div>
 
     <div class="form-group col-md-2">
-      <%= f.label :end_lon, "End Lon", class: "control-label" %>
-      <%= f.text_field :end_lon, class: "form-control longitude", id: "longitude_2" %>
+      <%= f.label :end_lat_deg, "End Lat Deg", class: "control-label" %>
+      <%= f.text_field :end_lat_deg, class: "form-control" %>
+    </div>
+    
+    <div class="form-group col-md-2">
+      <%= f.label :end_lat_min, "End Lat Min", class: "control-label" %>
+      <%= f.text_field :end_lat_min, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-2">
+      <%= f.label :end_lon_deg, "End Lon Deg", class: "control-label" %>
+      <%= f.text_field :end_lon_deg, class: "form-control" %>
+    </div>
+    
+    <div class="form-group col-md-2">
+      <%= f.label :end_lon_min, "End Lon Min", class: "control-label" %>
+      <%= f.text_field :end_lon_min, class: "form-control" %>
     </div>
 
     <div class="form-group col-md-2">

@@ -1,10 +1,11 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "Trips") do |tripSheet|
-    tripSheet.add_row [ 'ID',
+    tripSheet.add_row [ 'Trip_ID',
                         'Date',
                         'Observer',
                         'Captain',
                         'Vessel',
+                        'Port',
                         'Depart Time',
                         'Return Time'
                       ]
@@ -14,8 +15,9 @@ wb.add_worksheet(name: "Trips") do |tripSheet|
                         trip.user.name,
                         trip.captain.name,
                         trip.vessel,
-                        trip.depart_time,
-                        trip.return_time
+                        trip.port_location,
+                        trip.depart_time.strftime("%H:%M"),
+                        trip.return_time.strftime("%H:%M")
                       ]
     end
 end
@@ -24,7 +26,6 @@ wb.add_worksheet(name: 'Samples') do |sampleSheet|
     sampleSheet.add_row [ 'Trip_ID',
                           'Sample_ID',
                           'Grid Number',
-                          'Arrival Time',
                           'Wind Speed',
                           'Wave Height',
                           'Current Speed',
@@ -35,7 +36,6 @@ wb.add_worksheet(name: 'Samples') do |sampleSheet|
         sampleSheet.add_row [ sample.trip.id,
                               sample.id,
                               sample.grid_number,
-                              sample.arrival_time,
                               sample.wind_speed,
                               sample.wave_height,
                               sample.current_speed,
@@ -52,12 +52,16 @@ wb.add_worksheet(name: 'Drops') do |dropSheet|
                         'Lines Fished',
                         'Start Time',
                         'Start Depth',
-                        'Start Lat',
-                        'Start Lon',
+                        'Start Lat Deg',
+                        'Start Lat Min',
+                        'Start Lon Deg',
+                        'Start Lon Min',
                         'End Time',
                         'End Depth',
-                        'End Lat',
-                        'End Lon',
+                        'End Lat Deg',
+                        'End Lat Min',
+                        'End Lon Deg',
+                        'End Lon Min',
                         'Fish Caught?'
                       ]
     @trips.each do |trip|
@@ -67,14 +71,18 @@ wb.add_worksheet(name: 'Drops') do |dropSheet|
                               drop.sample.id,
                               drop.drop_number,
                               drop.lines,
-                              drop.start_time,
+                              drop.start_time.strftime("%H:%M"),
                               drop.start_depth,
-                              drop.start_lat,
-                              drop.start_lon,
-                              drop.end_time,
+                              drop.start_lat_deg,
+                              drop.start_lat_min,
+                              drop.start_lon_deg,
+                              drop.start_lon_min,
+                              drop.end_time.strftime("%H:%M"),
                               drop.end_depth,
-                              drop.end_lat,
-                              drop.end_lon,
+                              drop.end_lat_deg,
+                              drop.end_lat_min,
+                              drop.end_lon_deg,
+                              drop.end_lon_min,
                               drop.fish_caught
                             ]
         end
@@ -87,7 +95,9 @@ wb.add_worksheet(name: 'Catches') do |catchSheet|
                           'Sample_ID',
                           'Species',
                           'Fork Length',
-                          'Girth'
+                          'Baits Taken',
+                          'Retained',
+                          'Tag Nunmber'
                         ]
     @trips.each do |trip|
       trip.samples.each do |sample|
@@ -96,7 +106,9 @@ wb.add_worksheet(name: 'Catches') do |catchSheet|
                                 catch.sample.id,
                                 catch.animal.species_cd,
                                 catch.fork_length,
-                                catch.girth
+                                catch.baits_taken,
+                                catch.retained,
+                                catch.tag_number
                               ]
         end
       end

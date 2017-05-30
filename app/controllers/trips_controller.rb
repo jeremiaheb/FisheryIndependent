@@ -85,10 +85,10 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:date, :vessel, :captain_id, :user_id, :manager_id, :depart_time, :return_time, :trip_notes,
-                                  samples_attributes: [:id, :grid_number, :arrival_time, :wind_speed, :wave_height, :current_speed, :sample_notes, :_destroy,
-                                                       drops_attributes: [:id, :sample_id, :drop_number, :lines, :start_time, :start_depth, :start_lat, :start_lon, :end_time, :end_depth, :end_lat, :end_lon, :fish_caught, :_destroy],
-                                                       catches_attributes: [:id, :sample_id, :animal_id, :fork_length, :girth, :_destroy],
+      params.require(:trip).permit(:date, :vessel, :captain_id, :user_id, :manager_id, :depart_time, :return_time, :trip_notes, :port_location,
+                                  samples_attributes: [:id, :grid_number, :wind_speed, :wave_height, :current_speed, :sample_notes, :_destroy,
+                                                       drops_attributes: [:id, :sample_id, :drop_number, :lines, :start_time, :start_depth, :start_lat_deg, :start_lat_min, :start_lon_deg, :start_lon_min, :end_time, :end_depth, :end_lat_deg, :end_lat_min, :end_lon_deg, :end_lon_min, :fish_caught, :_destroy],
+                                                       catches_attributes: [:id, :sample_id, :animal_id, :fork_length, :girth, :baits_taken, :retained, :tag_number, :_destroy],
                                                        animal_attributes: [:id, :species_cd, :scientific_name, :_destroy]])
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525170015) do
+ActiveRecord::Schema.define(version: 20170530205907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 20170525170015) do
     t.integer "girth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "baits_taken"
+    t.string "retained"
+    t.string "tag_number"
   end
 
   create_table "drops", force: :cascade do |t|
@@ -44,15 +47,19 @@ ActiveRecord::Schema.define(version: 20170525170015) do
     t.string "lines"
     t.datetime "start_time"
     t.integer "start_depth"
-    t.string "start_lat"
-    t.string "start_lon"
     t.datetime "end_time"
     t.integer "end_depth"
-    t.string "end_lat"
-    t.string "end_lon"
     t.string "fish_caught"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "start_lat_deg"
+    t.float "start_lat_min"
+    t.integer "start_lon_deg"
+    t.float "start_lon_min"
+    t.integer "end_lat_deg"
+    t.float "end_lat_min"
+    t.integer "end_lon_deg"
+    t.float "end_lon_min"
   end
 
   create_table "managers", force: :cascade do |t|
@@ -70,7 +77,6 @@ ActiveRecord::Schema.define(version: 20170525170015) do
 
   create_table "samples", force: :cascade do |t|
     t.integer "grid_number"
-    t.datetime "arrival_time"
     t.integer "wind_speed"
     t.integer "wave_height"
     t.string "current_speed"
@@ -91,6 +97,7 @@ ActiveRecord::Schema.define(version: 20170525170015) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "manager_id"
+    t.string "port_location"
   end
 
   create_table "users", force: :cascade do |t|

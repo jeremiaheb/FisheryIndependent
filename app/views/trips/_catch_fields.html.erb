@@ -10,15 +10,23 @@
           <%= f.collection_select(:animal_id, Animal.all, :id, :scientific_name, {}, {class: "form-control speciesField"}) %>
         </div>
 
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-2">
           <%= f.text_field :fork_length, class: "form-control" %>
     </div>
 
-    <div class="form-group col-md-3">
-          <%= f.text_field :girth, class: "form-control" %>
+    <div class="form-group col-md-2">
+        <%= f.select(:baits_taken, ["Fish", "Squid", "Unk"], {}, {class: "form-control"}) %>
     </div> 
     
-    <div class="form-group col-md-3" id="removeCatchLink">
+    <div class="form-group col-md-2">
+        <%= f.select(:retained, ["Yes", "No"], {}, {class: "form-control"}) %>
+    </div> 
+    
+    <div class="form-group col-md-2">
+          <%= f.text_field :tag_number, class: "form-control" %>
+    </div> 
+    
+    <div class="form-group col-md-1" id="removeCatchLink">
       <span>
         <%= link_to_remove_association "remove catch", f %>
       </span>
