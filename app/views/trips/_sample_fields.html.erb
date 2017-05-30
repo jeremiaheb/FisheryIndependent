@@ -43,7 +43,7 @@
         <%= f.fields_for :drops do |builder| %>
           <%= render 'drop_fields', f: builder %>
         <% end %>
-        <div class="links" id="addDropLink">
+        <div class="links addDropLink" id="addDropLink">
           <%= link_to_add_association "Add Drop",f,:drops %>
         </div>
       </div>

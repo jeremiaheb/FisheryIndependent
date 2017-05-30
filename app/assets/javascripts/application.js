@@ -18,6 +18,7 @@
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require bootstrap-datepicker
 //= require select2
+//= require jquery.validate
 //= require_tree .
 //
 
@@ -36,9 +37,6 @@ $( document ).ready(function() {
     theme: "bootstrap"
   });
 
-  $(document).delegate(".addCatchLink", "click", function(){ 
-    $(".speciesField").select2({ theme: "bootstrap" });
-  });
 
 
   function addsCollapseButtonToTripSidebar() {
@@ -59,9 +57,20 @@ $( document ).ready(function() {
 
   addsCollapseButtonToTripSidebar();
 
+  
   $(document).delegate(".addSamplesLink", "click", function(){ 
     addsCollapseButtonToTripSidebar();
   });
+
+  $(document).delegate(".addDropLink", "click", function(){ 
+    validate_fields();
+  }); 
+  
+  $(document).delegate(".addCatchLink", "click", function(){ 
+    $(".speciesField").select2({ theme: "bootstrap" });
+  });
+
+
 
   $(".gridNumber").each(function(){
       var $gnum = $(this).val();
@@ -71,5 +80,61 @@ $( document ).ready(function() {
   });
   
   $('input[type="button"]').each(function(){ $(this).click(); });
+
+
+
+  jQuery.validator.addMethod("lat_check", function(value, element) {
+    // allow any non-whitespace characters as the host part
+    return this.optional( element ) || /^-?(([1-8]?\d))(\/|\:|\ )[1-5]?\d(\.\d{4})?$/m.test( value );
+    },
+  );
+  
+  jQuery.validator.addMethod("lon_check", function(value, element) {
+    // allow any non-whitespace characters as the host part
+    return this.optional( element ) || /^-?([1-9]|[1-9][0-9]|[1][0-7][0-9])(\/|\:|\ )[1-5]?\d(\.\d{4})?$/m.test( value );
+    },
+  );
+  
+    $(".new_trip, .edit_trip").validate({
+
+      errorElement: "span",
+
+
+      onfocusout: function(element) {
+        this.element(element);
+      },
+
+
+    });
+
+  function validate_fields() {
+
+    $(".latitude").each(function() {
+      $(this).rules("add", {
+        required: true,
+        lat_check: true,
+        messages: {
+          required: "Required Input",
+          lat_check: "Must be in the format of"
+        }
+      });
+    });
+
+    $(".longitude").each(function() {
+      $(this).rules("add", {
+        required: true,
+        lon_check: true,
+        messages: {
+          required: "Required Input",
+          lon_check: "Must be in the format of"
+        }
+      });
+    });
+
+  };
+
+  validate_fields();
+  
+
 
 });
