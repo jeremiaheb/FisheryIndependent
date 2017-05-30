@@ -109,6 +109,78 @@ $( document ).ready(function() {
 
   function validate_fields() {
 
+    $("#userField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Observer",
+        }
+      });
+    });
+    
+    $("#managerField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Data Manager",
+        }
+      });
+    });
+    
+    $("#dateField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Date",
+        }
+      });
+    });
+    
+    $("#vesselField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Vessel Name",
+        }
+      });
+    });
+    
+    $("#portField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Port Location",
+        }
+      });
+    });
+    
+    $("#captainField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Captain Name",
+        }
+      });
+    });
+    
+    $("#departTimeField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Departure Time",
+        }
+      });
+    });
+    
+    $("#returnTimeField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Return Time",
+        }
+      });
+    });
+
     $(".latitude").each(function() {
       $(this).rules("add", {
         required: true,
