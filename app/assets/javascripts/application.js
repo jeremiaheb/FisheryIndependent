@@ -258,8 +258,10 @@ $( document ).ready(function() {
     $(".latDegree").each(function() {
       $(this).rules("add", {
         required: true,
+        range: [-90,90],
         messages: {
           required: "Please Enter Lat Degree",
+          range: "Must be between -90 and 90"
         }
       });
     });
@@ -267,8 +269,12 @@ $( document ).ready(function() {
     $(".latMinute").each(function() {
       $(this).rules("add", {
         required: true,
+        number: true,
+        range: [1.001,59.999],
         messages: {
           required: "Please Enter Lat Minute",
+          number: "Must be decimal number",
+          range: "Must be between 1 and 59"
         }
       });
     });
@@ -276,8 +282,10 @@ $( document ).ready(function() {
     $(".lonDegree").each(function() {
       $(this).rules("add", {
         required: true,
+        range: [-180,180],
         messages: {
           required: "Please Enter Lon Degree",
+          range: "Must be between -180 and 180"
         }
       });
     });
@@ -285,8 +293,12 @@ $( document ).ready(function() {
     $(".lonMinute").each(function() {
       $(this).rules("add", {
         required: true,
+        number: true,
+        range: [1.001,59.999],
         messages: {
           required: "Please Enter Lon Minute",
+          number: "Must be decimal number",
+          range: "Must be between 1 and 59"
         }
       });
     });
