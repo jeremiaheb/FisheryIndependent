@@ -60,6 +60,7 @@ $( document ).ready(function() {
   
   $(document).delegate(".addSamplesLink", "click", function(){ 
     addsCollapseButtonToTripSidebar();
+    validate_fields();
   });
 
   $(document).delegate(".addDropLink", "click", function(){ 
@@ -68,6 +69,7 @@ $( document ).ready(function() {
   
   $(document).delegate(".addCatchLink", "click", function(){ 
     $(".speciesField").select2({ theme: "bootstrap" });
+    validate_fields();
   });
 
 
@@ -109,7 +111,7 @@ $( document ).ready(function() {
 
   function validate_fields() {
 
-    $("#userField").each(function() {
+    $(".userField").each(function() {
       $(this).rules("add", {
         required: true,
         messages: {
@@ -118,7 +120,7 @@ $( document ).ready(function() {
       });
     });
     
-    $("#managerField").each(function() {
+    $(".managerField").each(function() {
       $(this).rules("add", {
         required: true,
         messages: {
@@ -127,7 +129,7 @@ $( document ).ready(function() {
       });
     });
     
-    $("#dateField").each(function() {
+    $(".dateField").each(function() {
       $(this).rules("add", {
         required: true,
         messages: {
@@ -136,7 +138,7 @@ $( document ).ready(function() {
       });
     });
     
-    $("#vesselField").each(function() {
+    $(".vesselField").each(function() {
       $(this).rules("add", {
         required: true,
         messages: {
@@ -145,7 +147,7 @@ $( document ).ready(function() {
       });
     });
     
-    $("#portField").each(function() {
+    $(".portField").each(function() {
       $(this).rules("add", {
         required: true,
         messages: {
@@ -154,7 +156,7 @@ $( document ).ready(function() {
       });
     });
     
-    $("#captainField").each(function() {
+    $(".captainField").each(function() {
       $(this).rules("add", {
         required: true,
         messages: {
@@ -163,7 +165,7 @@ $( document ).ready(function() {
       });
     });
     
-    $("#departTimeField").each(function() {
+    $(".departTimeField").each(function() {
       $(this).rules("add", {
         required: true,
         messages: {
@@ -172,7 +174,7 @@ $( document ).ready(function() {
       });
     });
     
-    $("#returnTimeField").each(function() {
+    $(".returnTimeField").each(function() {
       $(this).rules("add", {
         required: true,
         messages: {
@@ -181,7 +183,7 @@ $( document ).ready(function() {
       });
     });
     
-    $("#gridNumberField").each(function() {
+    $(".gridField").each(function() {
       $(this).rules("add", {
         required: true,
         messages: {
@@ -190,7 +192,7 @@ $( document ).ready(function() {
       });
     });
     
-    $("#windSpeedField").each(function() {
+    $(".windSpeedField").each(function() {
       $(this).rules("add", {
         required: true,
         messages: {
@@ -199,7 +201,7 @@ $( document ).ready(function() {
       });
     });
     
-    $("#waveHeightField").each(function() {
+    $(".waveHeightField").each(function() {
       $(this).rules("add", {
         required: true,
         messages: {
@@ -208,7 +210,7 @@ $( document ).ready(function() {
       });
     });
     
-    $("#currentSpeedField").each(function() {
+    $(".currentSpeedField").each(function() {
       $(this).rules("add", {
         required: true,
         messages: {
@@ -216,25 +218,138 @@ $( document ).ready(function() {
         }
       });
     });
-
-    $(".latitude").each(function() {
+    
+    $(".driftField").each(function() {
       $(this).rules("add", {
         required: true,
-        lat_check: true,
         messages: {
-          required: "Required Input",
-          lat_check: "Must be in the format of"
+          required: "Please Enter Drift Number",
+        }
+      });
+    });
+    
+    $(".linesFishedField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Baits Fished",
+        }
+      });
+    });
+    
+    $(".startTimeField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Start Time",
+        }
+      });
+    });
+    
+    $(".startDepthField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Start Depth",
+        }
+      });
+    });
+    
+    $(".latDegree").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Lat Degree",
+        }
+      });
+    });
+    
+    $(".latMinute").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Lat Minute",
         }
       });
     });
 
-    $(".longitude").each(function() {
+    $(".lonDegree").each(function() {
       $(this).rules("add", {
         required: true,
-        lon_check: true,
         messages: {
-          required: "Required Input",
-          lon_check: "Must be in the format of"
+          required: "Please Enter Lon Degree",
+        }
+      });
+    });
+
+    $(".lonMinute").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Lon Minute",
+        }
+      });
+    });
+    
+    $(".endTimeField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter End Time",
+        }
+      });
+    });
+    
+    $(".endDepthField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter End Depth",
+        }
+      });
+    });
+    
+    $(".fishCaughtField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Fish Caught",
+        }
+      });
+    });
+    
+    $(".speciesField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Fish Species",
+        }
+      });
+    });
+    
+    $(".forkLengthField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Fork Length",
+        }
+      });
+    });
+    
+    $(".baitsTakenField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter Baits Taken",
+        }
+      });
+    });
+    
+    $(".retainedField").each(function() {
+      $(this).rules("add", {
+        required: true,
+        messages: {
+          required: "Please Enter if Retained",
         }
       });
     });

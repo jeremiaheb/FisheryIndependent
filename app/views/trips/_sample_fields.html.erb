@@ -7,22 +7,22 @@
       <div class="row">
         <div class="form-group col-md-2">
           <%= f.label :grid_number, "Grid Number", class: "control-label" %>
-          <%= f.text_field :grid_number, class: "form-control gridNumber", id: "gridNumberField" %>
+          <%= f.text_field :grid_number, class: "form-control gridNumber gridField" %>
         </div>
 
         <div class="form-group col-md-2">
           <%= f.label :wind_speed, "Wind Speed", class: "control-label" %>
-          <%= f.text_field :wind_speed, class: "form-control", id: "windSpeedField" %>
+          <%= f.text_field :wind_speed, class: "form-control windSpeedField" %>
         </div>
 
         <div class="form-group col-md-2">
           <%= f.label :wave_height, "Wave Height", class: "control-label" %>
-          <%= f.text_field :wave_height, class: "form-control", id: "waveHeightField" %>
+          <%= f.text_field :wave_height, class: "form-control waveHeightField" %>
         </div>
 
         <div class="form-group col-md-2">
           <%= f.label :current_speed, "Current Speed", class: "control-label" %>
-          <%= f.select(:current_speed, [ "Low", "Moderate", "High" ], {}, {class: "form-control", id: "currentSpeedField"}) %>
+          <%= f.select(:current_speed, [ "Low", "Moderate", "High" ], {}, {class: "form-control currentSpeedField"}) %>
         </div>
 
         <div class="form-group col-md-4">

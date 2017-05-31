@@ -12,49 +12,49 @@
         <div class="row">
           <div class="form-group col-md-3">
             <%= f.label :user_id, "Observer", class: "control-label" %>
-            <%= f.collection_select(:user_id, User.all, :id, :name, {}, {class: "form-control", id: "userField"}) %>
+            <%= f.collection_select(:user_id, User.all, :id, :name, {}, {class: "form-control userField"}) %>
           </div> 
 
           <div class="form-group col-md-3">
             <%= f.label :manager_id, "Data Manager", class: "control-label" %>
-            <%= f.collection_select(:manager_id, Manager.all, :id, :name, {}, {class: "form-control", id: "managerField"}) %>
+            <%= f.collection_select(:manager_id, Manager.all, :id, :name, {}, {class: "form-control managerField"}) %>
           </div>
 
           <div class="form-group col-md-2">
             <%= f.label :date, "Date", class: "control-label" %>
-            <%= f.text_field :date, class: "form-control dateField", id: "dateField" %>
+            <%= f.text_field :date, class: "form-control dateField" %>
           </div>
 
           <div class="form-group col-md-2">
             <%= f.label :vessel, "Vessel", class: "control-label" %>
-            <%= f.text_field :vessel, class: "form-control", id: "vesselField" %>
+            <%= f.text_field :vessel, class: "form-control vesselField" %>
           </div> 
           
           <div class="form-group col-md-2">
             <%= f.label :port_location, "Port", class: "control-label" %>
-            <%= f.text_field :port_location, class: "form-control", id: "portField" %>
+            <%= f.text_field :port_location, class: "form-control portField" %>
           </div>
         </div>
 
         <div class="row">
           <div class="form-group col-md-3">
             <%= f.label :captain_id, "Captain", class: "control-label" %>
-            <%= f.collection_select(:captain_id, Captain.all, :id, :name, {},  {class: "form-control", id: "captainField"}) %>
+            <%= f.collection_select(:captain_id, Captain.all, :id, :name, {},  {class: "form-control captainField"}) %>
           </div>
 
           <div class="form-group col-md-2">
             <%= f.label :depart_time, "Departure Time", class: "control-label" %>
-            <%= f.time_field :depart_time, class: "form-control timeField", id: "departTimeField" %>
+            <%= f.time_field :depart_time, class: "form-control timeField departTimeField" %>
           </div>
 
           <div class="form-group col-md-2">
             <%= f.label :return_time, "Return Time", class: "control-label" %>
-            <%= f.time_field :return_time, class: "form-control", id: "returnTimeField" %>
+            <%= f.time_field :return_time, class: "form-control returnTimeField" %>
           </div>
 
           <div class="form-group col-md-3">
             <%= f.label :trip_notes, "Trip Notes", class: "control-label" %>
-            <%= f.text_area :trip_notes, class: "form-control", id: "tripNotesField" %>
+            <%= f.text_area :trip_notes, class: "form-control tripNotesField" %>
           </div>
         </div>
       </div> 

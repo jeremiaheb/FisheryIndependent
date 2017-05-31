@@ -11,19 +11,19 @@
         </div>
 
     <div class="form-group col-md-2">
-          <%= f.text_field :fork_length, class: "form-control" %>
+          <%= f.text_field :fork_length, class: "form-control forkLengthField" %>
     </div>
 
     <div class="form-group col-md-2">
-        <%= f.select(:baits_taken, ["Fish", "Squid", "Unk"], {}, {class: "form-control"}) %>
+        <%= f.select(:baits_taken, ["Fish", "Squid", "Unk"], {}, {class: "form-control baitsTakenField"}) %>
     </div> 
     
     <div class="form-group col-md-2">
-        <%= f.select(:retained, ["Yes", "No"], {}, {class: "form-control"}) %>
+        <%= f.select(:retained, ["Yes", "No"], {}, {class: "form-control retainedField"}) %>
     </div> 
     
     <div class="form-group col-md-2">
-          <%= f.text_field :tag_number, class: "form-control" %>
+          <%= f.text_field :tag_number, class: "form-control tagNumberField" %>
     </div> 
     
     <div class="form-group col-md-1" id="removeCatchLink">
